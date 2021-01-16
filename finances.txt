@@ -1,0 +1,19 @@
+
+ 01/15/20
+income: 300.0
+Your total Savings: $100
+paycheck remaining: 200.0
+starbucks - expense: 15.0
+paycheck remaining: 185.0
+groceries - expense: 20.0
+paycheck remaining: 165.0
+----------------------------
+01/22/20
+income: 212.22
+Your total Savings: $100
+paycheck remaining: 112.22
+groceries - expense: 50.33
+paycheck remaining: 61.89
+gasStation - expense: 3.23
+paycheck remaining: 58.66
+----------------------------

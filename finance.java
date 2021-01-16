@@ -1,35 +1,35 @@
 
 public class finance {
 	
-	private int payCheck;
-	private int Save = 100;
-	private int savings = 1564;
-	private int expense;
-	private int monLeft;
+	private double payCheck;
+	private double Save = 100;
+	private double savings = 1564;
+	private double expense;
+	private double monLeft;
 	
 	public finance() {
 		
 	}
 	//takes out 100
-	public void setpayCheck(int check) {
+	public void setpayCheck(double check) {
 	    payCheck = check - 100;
 	}
 	
-	public void setRemCheck(int number) {
+	public void setRemCheck(double number) {
 		payCheck = number;
 	}
 
-	public int getpayCheck() {
+	public double getpayCheck() {
 		return payCheck;
 	}
 
 	public String youSave() {
-		int save = payCheck - 100;
+		double save = payCheck - 100;
 		return "1) saving $100, you now have $" + save + " to spend";
 	
 }
 	//paycheck after an expense
-	public void postExp(int expense) {
+	public void postExp(double expense) {
 		payCheck -= expense;
 	}
 	

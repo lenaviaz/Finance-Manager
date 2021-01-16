@@ -15,10 +15,6 @@ public class createFile {
 		}
 	}
 	
-	public void addRecords() {
-		x.format("%s%s%s", "20", "bucky", "roberts");
-	}
-	
 	public void closeFile() {
 		x.close();
 	}
