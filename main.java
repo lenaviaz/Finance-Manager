@@ -14,6 +14,7 @@ public class main {
 		
      	List<String> list = new ArrayList<String>();
      	List<String> list2 = new ArrayList<String>();
+     	List<Double> list3 = new ArrayList<Double>();
      	
      	finance myMoney = new finance();
      	
@@ -24,9 +25,11 @@ public class main {
  
 do {
 	    Scanner scan = new Scanner(System.in);
-	    String file = "chinese.txt";
+	    String file = "weekly.txt";
 	    FileWriter fw = new FileWriter(file, true);
      	BufferedWriter bw = new BufferedWriter(fw); 
+     	FileReader fr = new FileReader("weekly.txt");
+ 		BufferedReader br = new BufferedReader(fr);
 	
      	System.out.println("Hello would you like to: ");
      	System.out.println("Start a new week (a) ");
@@ -63,14 +66,14 @@ do {
      	 
      	case "b": {
      		
-     		FileReader fr = new FileReader("chinese.txt");
-     		BufferedReader br = new BufferedReader(fr);
      		String line;
      		while((line =  br.readLine()) != null){
      		    if (line.contains("paycheck remaining:")) {
      		    	list.add(line);
      		    }
-     		    	
+     		   // for(String h : list) {
+     		 //   	System.out.print(h);
+     		  //  }
      		    }
      		
      	       	String a = list.get(list.size() - 1); 
@@ -104,78 +107,59 @@ do {
 	
      	case "c": {
      		
-     		FileReader fr = new FileReader("chinese.txt");
-     		FileReader fr2 = new FileReader("chinese.txt");
-     		FileReader fr3 = new FileReader("chinese.txt");
-     		BufferedReader br = new BufferedReader(fr);
-     		BufferedReader br2 = new BufferedReader(fr2);
-     		BufferedReader br3 = new BufferedReader(fr3);
+   //// this function finds the total amount the user spent
+        		String line;
+      		while((line =  br.readLine()) != null){
+     		    if (line.contains("expense:")) {
+     		    	 String rem =  line.split(":")[1].trim();
+     		    	list.add(rem);
+    		            }
+     		}
+    	for(String h : list) {
+     		 double check = Double.parseDouble(h);
+     		list3.add(check);
+     	
+     	}
+    		Double totalSpend = 0.00;
+     	 for(double i : list3) {
+    		 totalSpend +=i;
+     	 } 
+     	 
+     //	System.out.println(totalSpend);
+      //initial paycheck
      		
-     		String line;
-     		while((line =  br.readLine()) != null){
-     		    if (line.contains("paycheck remaining:")) {
-     		    	list.add(line);
-     		         } 	
-     		    }
-     		
-     	       	String a = list.get(list.size() - 1); 
-     		     String rem =  a.split(":")[1].trim();
-     		       double check = Double.parseDouble(rem);
-     		       myMoney.setRemCheck(check);
-     		      
-     	     String line2;
-     	     		
-     	     		while((line2 =  br2.readLine()) != null){
-     	     		    if (line2.contains("expense:")) {
-     	     		    	list2.add(line2);
-     	     		         } 	
-     	     		}
-     	   
-     	     	       	for (String j : list2) {
-     	     	            String expen =  j.split(":")[1].trim();
-     	     	     		double i = Double.parseDouble(expen);
-     	            		allSpent += i;
-     	              	}
-     	     	       	
-     	     String line3;
-     	     String first="";
-     	     	while((line3 =  br3.readLine()) != null){
-	     		    if (line3.contains("income:")) {
-	     		    	String This = line3;
-	     		    
-	     		    first = This.split(":")[1].trim();
-	     		  
-	     		    }
-     	     	}
-     	     	//first paycheck will always be two digits entered by user
-     	            System.out.println("Your innitial paycheck was " + first);
-     	       //     double postSav = Double.parseDouble(first.substring(1));
-     	       //    double rounded = (double) Math.round(postSav * 100) / 100;
-     	        //   double roundSav = rounded - 100;
-     	        //  double toPrint = (double) Math.round(roundSav * 100) / 100;
-     	            double dFirst = Double.parseDouble(first);
-     	            double Longminus100 = (dFirst - 100);
-     	           double toPrint = (double) Math.round(Longminus100 * 100) / 100;
-     	          System.out.println ("You moved 100 to savings, leaving your paycheck: $" + toPrint);
-     	         double rounded2 = (double) Math.round(allSpent * 100) / 100;
-     	          System.out.println("Your total spending:$ " + rounded2);
-     		        System.out.println(myMoney.report());
-     		    
-     		       
-     		        
-     		        System.exit(0);
-     	      
+     	 FileReader fr2 = new FileReader("weekly.txt");
+     	 BufferedReader br2 = new BufferedReader(fr2);
+     	String income;
+ 		while((income =  br2.readLine()) != null){
+ 		    if (income.contains("income:")) {
+ 		    	 list2.add(income);	    
+ 		    }
+ 		}
+        String totIncome = list2.get(list2.size() - 1);
+        String splitIncome =  totIncome.split(":")[1].trim();
+        Double dobIncome = Double.parseDouble(splitIncome);
+        System.out.println(dobIncome);
+        Double afterSavings = dobIncome - 100;
+        double haveLeft = afterSavings - totalSpend;
+        System.out.println("your initial paycheck was: $" + dobIncome);
+        System.out.println("After moving 100 to savings, you have: $" + afterSavings + " left in your paycheck");
+        System.out.println("you spent $" + totalSpend + " this week");
+        System.out.println("You have left $" + haveLeft + "to spend this week");
+        
+        System.exit(0);
+        
      	} break;
      	
      	case "d" :{
      		 
      		 //even if an exception rises
-            try (FileReader fr = new FileReader("chinese.txt");
+            try (FileReader fr1 = new FileReader("weekly.txt");
                  FileWriter fw1 = new FileWriter("finances.txt", true)) {
                 int c = fr.read();
                 while(c!=-1) {
                     fw1.write(c);
-                    c = fr.read();
+                    c = fr1.read();
                 }
                 fw1.write("----------------------------\n");
             } catch(IOException e) {
@@ -183,21 +167,18 @@ do {
             }
             fw.close();
             
-            FileWriter fw3 = new FileWriter("chinese.txt");
+            FileWriter fw3 = new FileWriter("weekly.txt");
         	 fw3.write(" ");
         	 fw3.close();
             
-     	}	
+           	}	
      	}
-     	
-     	
-	
     
 } while (choice.equals("a") || choice.equals("b") || choice.equals("c") || choice.equals("d"));
   System.out.print("exit? ");
   System.exit(0);
- } 
  
+	}
  }
 
 
