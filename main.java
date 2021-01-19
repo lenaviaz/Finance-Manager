@@ -8,6 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+
 public class main {
 	
 	public static void main(String [] args) throws IOException {
@@ -16,6 +19,13 @@ public class main {
      	List<String> list2 = new ArrayList<String>();
      	List<Double> list3 = new ArrayList<Double>();
      	
+     	
+     	JFrame frame = new JFrame();
+     	JLabel label1 = new JLabel("Test");
+
+     	frame.setSize(500, 600);
+     	frame.add(label1);
+     	frame.setVisible(true);
      	finance myMoney = new finance();
      	
      	double oneExpense=1.00;
