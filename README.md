@@ -1,2 +1,9 @@
 # Finance-Manager
-Java application to track my finances.
+
+# Objective
+
+The objective of this programming project was to encahnce my skills in java programming.
+
+# Program Description
+
+
