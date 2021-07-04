@@ -3,7 +3,7 @@
 # Objective
 
 The objective of this programming project was to encahnce my skills in java programming.
-edit1w
+edit1wq
 w
 # Program Description
 
