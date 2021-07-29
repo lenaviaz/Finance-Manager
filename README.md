@@ -1,4 +1,4 @@
-# Finance-Manager
+# Finance-Manager-project
 
 # Objective
 
@@ -6,5 +6,6 @@ The objective of this programming project was to encahnce my skills in java prog
 edit1wq
 w
 # Program Description
+
 
 
