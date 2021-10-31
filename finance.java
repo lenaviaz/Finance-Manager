@@ -1,44 +1,63 @@
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
 
 public class finance {
-	
-	private double payCheck;
-	private double Save = 100;
-	private double savings = 1564;
-	private double expense;
-	private double monLeft;
-	
-	public finance() {
-		
-	}
-	//takes out 100
-	public void setpayCheck(double check) {
-	    payCheck = check - 100;
-	}
-	
-	public void setRemCheck(double number) {
-		payCheck = number;
-	}
 
-	public double getpayCheck() {
-		return payCheck;
-	}
+String file = "tester.csv";
 
-	public String youSave() {
-		double save = payCheck - 100;
-		return "1) saving $100, you now have $" + save + " to spend";
-	
+Scanner in = new Scanner(System.in);
+
+//FileWriter fw = new FileWriter(file, true);
+int payCheck;
+int expense;
+String date;
+
+double checking = 0;
+double savings = 0;
+
+public void newCheck() throws IOException{
+
+FileWriter fw = new FileWriter(file, true);
+BufferedWriter bw = new BufferedWriter(fw); 
+System.out.println("What is today's date?");
+date = in.next();
+// new paycheck, move that ammount to savings
+System.out.println("What was your paycheck this week?");
+payCheck = in.nextInt();
+
+bw.write(date+", ");
+bw.write(String.valueOf(payCheck));
+bw.newLine();
+bw.close();
+
+checking = checking + payCheck;
+System.out.println(checking);
 }
-	//paycheck after an expense
-	public void postExp(double expense) {
-		payCheck -= expense;
-	}
-	
-	public String report() {
-		return "your remaining paycheck: $" + payCheck;
-		
-		
-		
-	}
-	
-	
+
+public String getDate(){
+    return date;
+}
+
+public void moveToSavings(){
+//move x ammount from checking account to savings 
+System.out.println("How much would you like to move to savings?");
+
+}
+
+public void moveToChecking(){
+//move x ammout from savings to checking 
+
+}
+
+public void expense(){
+//subtract this ammount from checking account
+System.out.println("Enter an Expense: ");
+expense = in.nextInt();
+
+
+}
+
 }
