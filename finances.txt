@@ -16,4 +16,5 @@ groceries - expense: 50.33
 paycheck remaining: 61.89
 gasStation - expense: 3.23
 paycheck remaining: 58.66
+wewewewew
 ----------------------------
