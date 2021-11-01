@@ -9,17 +9,15 @@ public static void main(String[] args) throws IOException{
 
 finance f1 = new finance();
 
-frame fr = new frame();
-fr.newFrame();
-String date = fr.t1.getText();
-
+//frame fr = new frame();
+//fr.newFrame();
 //JTextField field = new JTextField("helllloooo");
 //fr.add(field);
 
 boolean runing = true;
 while(runing){
-f1.newCheck();
-System.out.print(date);
+    f1.newCheck();
+//System.out.print(date);
 
 
 }
