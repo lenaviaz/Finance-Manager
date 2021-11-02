@@ -37,8 +37,8 @@ bw.newLine();
 bw.close();
 
 // give user option to deposit to checking or savings, then update accounts.csv
-checking = checking + payCheck;
-System.out.println(checking);
+savings = savings + payCheck;
+System.out.println(payCheck);
 }
 
 public String getDate(){
@@ -71,6 +71,8 @@ BufferedWriter bw = new BufferedWriter(fw);
 System.out.println("How much would you like to move to checking?");
 int ammount = in.nextInt();
 
+
+if(savings > 0){
 savings = savings - ammount;
 checking = checking + ammount;
 
@@ -78,7 +80,9 @@ bw.write(String.valueOf(checking)+", ");
 bw.write(String.valueOf(savings));
 bw.newLine();
 bw.close();
-
+} else {
+    System.out.println("cannot move to checking, savings account is $0.00");
+}
 }
 
 public void expense(){
@@ -86,9 +90,11 @@ public void expense(){
 System.out.println("Enter an Expense: ");
 expense = in.nextInt();
 
+}
 
-
-
+public void message(){
+    System.out.println("What would you like to do?\n" + "Type 'A' to deposit a check\n"
+     +"Type 'B' to transfer an ammount\n" + "Type 'X' to exit\n");
 }
 
 }
