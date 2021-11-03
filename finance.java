@@ -35,14 +35,37 @@ public class finance {
     public int getChecking(){
         return checking;
     }
-    public void setChecking(int c) throws IOException{
+
+    public int getSavings(){
+        return savings;
+    }
+
+    public void setSavings(int s) throws IOException{
+        savings = s; 
+    }
+
+    public void writeSavings()throws IOException {
         FileWriter fw = new FileWriter(accountfile, true);
         BufferedWriter bw = new BufferedWriter(fw); 
-        checking = c;
+
+        bw.write(String.valueOf(savings + ", "));
+        //  bw.newLine();
+          bw.close(); 
+
+    }
+    public void setChecking(int c) throws IOException{
+        checking = c; 
+    }
+
+    public void writeChecking() throws IOException {
+        FileWriter fw = new FileWriter(accountfile, true);
+        BufferedWriter bw = new BufferedWriter(fw); 
 
         bw.write(String.valueOf(checking));
         bw.newLine();
-        bw.close(); 
+        bw.close();
+
+
     }
 
 

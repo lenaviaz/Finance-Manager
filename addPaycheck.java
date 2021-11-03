@@ -13,14 +13,12 @@ public class addPaycheck {
  //  public finance fin = new finance();
     frame fr = new frame();
 
- 
-
     public addPaycheck(){
 
        // finance fin = new finance();
 
         fr.newFrame();
-        fr.setSize(600, 600);
+       // fr.setSize(600, 600);
 
       //  JButton b1 = new JButton("yoo");
         //b1.setBounds(50, 100, 150, 20);
@@ -46,17 +44,38 @@ public class addPaycheck {
         public void actionPerformed( ActionEvent e ) {
             String a = t1.getText();
             int i = Integer.parseInt(a);
-            int current = mainframe.fin.getPaycheck();
-            int bah = current + i;
+            int current = mainframe.fin.getSavings();
+            int newSave = current + i;
            // fin.setPaycheck(i);
               try {
-                mainframe.fin.setPaycheck(bah);
+                mainframe.fin.setPaycheck(i);
               //  mainframe.fin.setChecking(i);
               } catch (IOException e1) {
                 // TODO Auto-generated catch block
                 e1.printStackTrace();
               } 
-              System.out.println(mainframe.fin.getPaycheck() + " "+ mainframe.fin.getChecking());
+                try {
+                  mainframe.fin.setSavings(newSave);
+                } catch (IOException e1) {
+                  // TODO Auto-generated catch block
+                  e1.printStackTrace();
+                }
+                try {
+                  mainframe.fin.writeSavings();
+                } catch (IOException e1) {
+                  // TODO Auto-generated catch block
+                  e1.printStackTrace();
+                }
+
+                try {
+                  mainframe.fin.writeChecking();
+                } catch (IOException e1) {
+                  // TODO Auto-generated catch block
+                  e1.printStackTrace();
+                }
+
+
+              System.out.println(mainframe.fin.getSavings() + " "+ mainframe.fin.getChecking());
            // System.out.println(mainframe.fin.getPaycheck());
           //  addPaycheck p1 = new addPaycheck();
             //f1.visible(false);

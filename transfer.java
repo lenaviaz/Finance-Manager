@@ -19,7 +19,7 @@ public class transfer {
         // finance fin = new finance();
  
          fr.newFrame();
-         fr.setSize(600, 600);
+         //fr.setSize(600, 600);
  
        //  JButton b1 = new JButton("yoo");
          //b1.setBounds(50, 100, 150, 20);
@@ -49,13 +49,9 @@ public class transfer {
             String selected = jComboBox.getItemAt(jComboBox.getSelectedIndex());
             System.out.print(selected);
 
-         //   if(selected.equals(" ")){
-         //           System.out.println("Must select an account");
-         //   }
-         //       else {
-
             String a = t1.getText();
             int i = Integer.parseInt(a);
+            
 
              int newChecking = mainframe.fin.getChecking() + i;
              try {
@@ -64,8 +60,16 @@ public class transfer {
                 // TODO Auto-generated catch block
                 e1.printStackTrace();
             }
+
+            try {
+                mainframe.fin.writeSavings();
+            } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+            }
        // }
-         }
+         
+        }
      });
  
      JButton b2 = new JButton( new AbstractAction("back to main page") {

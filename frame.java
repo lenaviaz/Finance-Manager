@@ -2,7 +2,10 @@ import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import java.awt.Color;
 import java.awt.event.*;
 
 public class frame {
@@ -12,9 +15,11 @@ public class frame {
 
     public void newFrame(){
     frame.setLayout(null);     
-    frame.setSize(300, 300);
+    frame.setSize(800, 600);
+    frame.setLocationRelativeTo(null);
     //frame.pack();
     frame.setVisible(true);
+    frame.getContentPane().setBackground( Color.decode("#9CBBF2") );
     }
 
     public void setSize(int x, int y){
@@ -42,6 +47,9 @@ public class frame {
     public void addbox(JComboBox box){
        frame.add(box);
     }
+
+    
    
+    
     }
     
