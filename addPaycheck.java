@@ -3,13 +3,19 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import java.awt.event.*;
+import java.io.IOException;
 
 
 public class addPaycheck {
 
     JTextField t1 = new JTextField();
+ //  public finance fin = new finance();
+
+ 
 
     public addPaycheck(){
+
+       // finance fin = new finance();
         frame fr = new frame();
         fr.newFrame();
         fr.setSize(600, 600);
@@ -29,7 +35,16 @@ public class addPaycheck {
         @Override
         public void actionPerformed( ActionEvent e ) {
             String a = t1.getText();
-            System.out.print(a);
+            int i = Integer.parseInt(a);
+            System.out.println(i);
+           // fin.setPaycheck(i);
+              try {
+                mainframe.fin.setPaycheck(i);
+              } catch (IOException e1) {
+                // TODO Auto-generated catch block
+                e1.printStackTrace();
+              }
+            System.out.println(mainframe.fin.getPaycheck());
           //  addPaycheck p1 = new addPaycheck();
             //f1.visible(false);
         }
