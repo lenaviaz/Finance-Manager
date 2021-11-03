@@ -1,5 +1,6 @@
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import java.awt.event.*;
@@ -9,6 +10,9 @@ public class transfer {
     frame fr = new frame();
     JTextField t1 = new JTextField();
     JTextField t2 = new JTextField();
+
+    String[] accounts = {"Checking", "Savings"};
+    JComboBox<String> jComboBox = new JComboBox<>(accounts);
 
     public transfer(){
 
@@ -26,19 +30,32 @@ public class transfer {
          t1.setBounds(50, 100, 150, 20);
          b1.setBounds(50, 150, 150, 20);
          b2.setBounds(50, 200, 150, 20);
+
+         
+        jComboBox.setBounds(80, 5, 140, 20);
          
          fr.addtext(t1);
          fr.addtext(t2);
          fr.addbutton(b1);
          fr.addbutton(b2);
+         fr.addbox(jComboBox);
  
      }
  
      JButton b1 = new JButton( new AbstractAction("confirm") {
          @Override
          public void actionPerformed( ActionEvent e ) {
-             String a = t1.getText();
-             int i = Integer.parseInt(a);
+
+            String selected = jComboBox.getItemAt(jComboBox.getSelectedIndex());
+            System.out.print(selected);
+
+         //   if(selected.equals(" ")){
+         //           System.out.println("Must select an account");
+         //   }
+         //       else {
+
+            String a = t1.getText();
+            int i = Integer.parseInt(a);
 
              int newChecking = mainframe.fin.getChecking() + i;
              try {
@@ -47,6 +64,7 @@ public class transfer {
                 // TODO Auto-generated catch block
                 e1.printStackTrace();
             }
+       // }
          }
      });
  

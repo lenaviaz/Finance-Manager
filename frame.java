@@ -1,5 +1,6 @@
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import java.awt.event.*;
@@ -36,6 +37,10 @@ public class frame {
 
     public void close(){
         frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+    }
+
+    public void addbox(JComboBox box){
+       frame.add(box);
     }
    
     }
