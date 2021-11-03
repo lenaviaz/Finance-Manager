@@ -7,19 +7,29 @@ public class mainframe {
 
     //class instance to be used among all classes
     public static finance fin = new finance();
-    public frame f1;
-    JTextField hello = new JTextField("Welcome to my shitty little app");
+    public static frame mainframe = new frame();
+    JTextField hello = new JTextField("amt ");
+
+    
 
     public void run() {
-        frame f1 = new frame();
-        f1.newFrame();
+        
+        mainframe.newFrame();
         t1.setBounds(50, 100, 150, 20);
         t2.setBounds(50, 150, 150, 20);
-        f1.addbutton(t1);
-        f1.addbutton(t2);
+        t3.setBounds(50, 200, 150, 20);
+        mainframe.addbutton(t1);
+        mainframe.addbutton(t2);
+        mainframe.addbutton(t3);
 
         hello.setBounds(50, 25, 100, 50);;
-        f1.addtext(hello);
+        mainframe.addtext(hello);
+
+        System.out.println("-------------------");
+        System.out.println(fin.getPaycheck()); 
+        System.out.println("--------------------");
+        System.out.println(fin.getChecking()); 
+        System.out.println("--------------------");  
 
         }
  
@@ -28,9 +38,10 @@ public class mainframe {
         public void actionPerformed( ActionEvent e ) {
             //System.out.print("Heck yeah");
             addPaycheck p1 = new addPaycheck();
-         //   f1.visible(false);
+            mainframe.close();
+         //   mainframe.visible(false);
             //fin.setPaycheck(1000);
-            System.out.println(fin.getPaycheck());
+           // System.out.println(fin.getPaycheck());
         }
     });
 
@@ -39,13 +50,20 @@ public class mainframe {
         public void actionPerformed( ActionEvent e ) {
             //System.out.print("Heck yeah");
             addPaycheck p1 = new addPaycheck();
-         //   f1.visible(false);
+         //   mainframe.visible(false);
             //fin.setPaycheck(1000);
-            System.out.println(fin.getPaycheck());
+          //  System.out.println(fin.getPaycheck() + "dssds");
         }
     });
 
-    
+    JButton t3 = new JButton( new AbstractAction("Transfer funds") {
+        @Override
+        public void actionPerformed( ActionEvent e ) {
+            //System.out.print("Heck yeah");
+            transfer t = new transfer();
+        }
+    });
+
     
 }
 

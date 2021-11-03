@@ -9,6 +9,8 @@ public class finance {
 
 
     int payCheck;
+    int checking;
+    int savings;
     int expense;
     String date;
 
@@ -29,4 +31,19 @@ public class finance {
     public int getPaycheck(){
         return payCheck;
     }
+
+    public int getChecking(){
+        return checking;
+    }
+    public void setChecking(int c) throws IOException{
+        FileWriter fw = new FileWriter(accountfile, true);
+        BufferedWriter bw = new BufferedWriter(fw); 
+        checking = c;
+
+        bw.write(String.valueOf(checking));
+        bw.newLine();
+        bw.close(); 
+    }
+
+
 }

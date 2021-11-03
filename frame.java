@@ -34,6 +34,9 @@ public class frame {
         frame.add(b);
     }
 
+    public void close(){
+        frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+    }
    
     }
     
