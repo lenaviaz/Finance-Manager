@@ -21,21 +21,16 @@ public class note {
     JTextArea toDo = new JTextArea();
     ArrayList<String> listOfLines = new ArrayList<>();
    // JButton confirm = new JButton("confirm");
+   JFrame j1 = new JFrame();
 
-    JFrame j1 = new JFrame();
+    
     String file = "data.txt";
     String accountfile = "accounts.csv";
     String a;
 
-    public void init(){
-        j1.setBounds(200, 200, 400, 400);
-        notes.setBounds(100, 100, 75, 25);//displayedtexts
-        confirm.setBounds(50, 50, 50, 20);
+    public void init(){ 
+        
         toDo.setBounds(150, 150, 300, 200);
-        j1.add(notes);
-        j1.add(confirm);
-        j1.setLayout(null);
-        j1.setVisible(true);
 
         try (Reader myReader = new BufferedReader(new FileReader("data.txt"))) {
             toDo.read(myReader, "Inventory");
@@ -44,6 +39,17 @@ public class note {
         }
     }
     
+    public void window() {
+        j1.setBounds(200, 200, 400, 400);
+        notes.setBounds(100, 100, 75, 25);//displayedtexts
+        confirm.setBounds(50, 50, 50, 20);
+       
+        j1.add(notes);
+        j1.add(confirm);
+        j1.setLayout(null);
+        j1.setVisible(true);
+    }
+
     public void addNote(String a) throws IOException{
 
         FileWriter fw = new FileWriter(file, true);

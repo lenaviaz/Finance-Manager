@@ -77,8 +77,7 @@ public class addPaycheck {
      //  m1.run()
          
          myNote.init();
-
-        
+         myNote.window();
     }
 });
 
