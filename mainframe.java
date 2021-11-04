@@ -89,19 +89,20 @@ public class mainframe {
         @Override
         public void actionPerformed( ActionEvent e ) {
             //System.out.print("Heck yeah");
-            addPaycheck p1 = new addPaycheck();
+           addPaycheck p1 = new addPaycheck();
+           p1.init();
             mainframe.close();
          //   mainframe.visible(false);
             //fin.setPaycheck(1000);
            // System.out.println(fin.getPaycheck());
-        }
+        } 
     });
 
     JButton t2 = new JButton( new AbstractAction("Budget") {
         @Override
         public void actionPerformed( ActionEvent e ) {
             //System.out.print("Heck yeah");
-            addPaycheck p1 = new addPaycheck();
+          //  addPaycheck p1 = new addPaycheck();
          //   mainframe.visible(false);
             //fin.setPaycheck(1000);
           //  System.out.println(fin.getPaycheck() + "dssds");

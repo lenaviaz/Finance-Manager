@@ -12,8 +12,11 @@ public class addPaycheck {
 
 
     JTextField notes = new JTextField();
+    mainframe m1 = new mainframe();
     JButton t1 = new JButton();
     JTextField t2 = new JTextField();
+ //   note myNote = new note();
+  
  //  public finance fin = new finance();
     frame fr = new frame();
 
@@ -21,7 +24,7 @@ public class addPaycheck {
 
     String file = "paychecks.csv";
 
-    public addPaycheck() {
+    public void init() {
 
        // finance fin = new finance();
   
@@ -43,7 +46,7 @@ public class addPaycheck {
         notes.setBounds(300, 50, 200, 400);
         add.setBounds(0, 150, 200, 100);
         add.setBackground(Color.white);
-        myNote.displayToDo();
+     //   myNote.displayToDo();
         myNote.init();
        // fr.addbutton(t1);
         //fr.addtext(t2);
@@ -61,7 +64,6 @@ public class addPaycheck {
       @Override
       public void actionPerformed( ActionEvent e ) {
          fr.close();
-         mainframe m1 = new mainframe();
          m1.run();
       }
   });
@@ -72,8 +74,8 @@ public class addPaycheck {
     public void actionPerformed( ActionEvent e ) {
      //  fr.close();
      //  mainframe m1 = new mainframe();
-     //  m1.run();
-         note myNote = new note();
+     //  m1.run()
+         
          myNote.init();
 
         
@@ -116,19 +118,22 @@ public class addPaycheck {
                   e1.printStackTrace();
                 }
 
-
+               
               System.out.println(mainframe.fin.getSavings() + " "+ mainframe.fin.getChecking());
            // System.out.println(mainframe.fin.getPaycheck());
           //  addPaycheck p1 = new addPaycheck();
-            //f1.visible(false);
-        }
+            //f1.visible(false)
+
+            myNote.init(); 
+            init(); 
+        }  
     });
 
     JButton back = new JButton( new AbstractAction("back to main page") {
       @Override
       public void actionPerformed( ActionEvent e ) {
          fr.close();
-         mainframe m1 = new mainframe();
+         myNote.init();
          m1.run();
       }
   });

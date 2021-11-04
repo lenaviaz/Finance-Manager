@@ -72,7 +72,7 @@ public class note {
     }
 
     
-    public void displayToDo() {
+ //   public void displayToDo() {
    
     //  FileReader fr=new FileReader(file);          //Creation of file reader object 
    //   BufferedReader br=new BufferedReader(fr);  //Creation of buffer reader object
@@ -87,7 +87,7 @@ public class note {
          //fw.flush();
       
        //  br.close();
-   }
+ //  }
 
     JButton confirm = new JButton( new AbstractAction("Confirm") {
         @Override
