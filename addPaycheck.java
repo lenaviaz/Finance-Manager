@@ -51,7 +51,7 @@ public class addPaycheck {
         fr.addbutton(back);
         fr.addbutton(view);
         fr.addbutton(add);
-        fr.addtext(myNote.toDo);
+        fr.addArea(myNote.toDo);
         //display();
         myNote.test();
     }

@@ -3,6 +3,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import java.awt.font.*;
 import java.awt.Font;
@@ -56,6 +57,10 @@ public class frame {
 
     public void addtext(JTextField j){
         frame.add(j);
+    }
+
+    public void addArea(JTextArea a){
+      frame.add(a);
     }
 
     public void addbutton(JButton b){

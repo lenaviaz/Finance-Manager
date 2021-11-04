@@ -1,6 +1,7 @@
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import java.awt.Color;
@@ -10,13 +11,14 @@ import java.io.BufferedWriter;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Reader;
 import java.util.ArrayList;
 
 public class note {
 
     JTextField notes = new JTextField();
 
-    JTextField toDo = new JTextField();
+    JTextArea toDo = new JTextArea();
     ArrayList<String> listOfLines = new ArrayList<>();
    // JButton confirm = new JButton("confirm");
 
@@ -34,6 +36,12 @@ public class note {
         j1.add(confirm);
         j1.setLayout(null);
         j1.setVisible(true);
+
+        try (Reader myReader = new BufferedReader(new FileReader("data.txt"))) {
+            toDo.read(myReader, "Inventory");
+        } catch (IOException exp) {
+            exp.printStackTrace();
+        }
     }
     
     public void addNote(String a) throws IOException{
@@ -47,7 +55,7 @@ public class note {
     }
     
     public void test() {
-        toDo.setText("ssssssssssssssssssssssssssssss");
+    //    toDo.setText("ssssssssssssssssssssssssssssss");
     }
 
 
@@ -73,7 +81,7 @@ public class note {
      // while((s=br.readLine())!=null)             //Copying Content to the new file
       
         //String a = listOfLines.get(0);
-        toDo.setText("aaaaaaaaaaaaaaaaaaaaa");
+     //   toDo.setText("aaaaaaaaaaaaaaaaaaaaa");
         //fw.write(s);
          //fw.write("\n");
          //fw.flush();
@@ -93,8 +101,10 @@ public class note {
             // TODO Auto-generated catch block
             e1.printStackTrace();
         }
+        j1.setVisible(false);
          //  mainframe m1 = new mainframe();
           // m1.run();
+          init();
         }
     });
 
