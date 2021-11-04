@@ -2,6 +2,7 @@ import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
 import java.awt.Color;
@@ -31,10 +32,13 @@ public class mainframe {
      String a = dtf.format(now);
 
      JTextField h1 = new JTextField(a);
+
+     quotes q = new quotes();
      
      int width = 200;
      int height = 100;
-
+     
+     JTextArea quote = new JTextArea();
     public void run() {
 
         Font font1 = new Font("SansSerif", Font.BOLD, 20);
@@ -48,6 +52,9 @@ public class mainframe {
         t3.setBackground(Color.WHITE);
         t4.setBounds(0, 350, width, height);
         t2.setBackground(Color.WHITE);
+        quote.setBounds(300, 300, 200, 50);
+        quote.setBackground(Color.WHITE);
+        //quote.setText(q.getRandString());
         jComboBox.setBounds(200, 50, 150, 20);
         h1.setBounds(0, 0, 800, 50);
         h1.setFont(font1);
@@ -61,6 +68,7 @@ public class mainframe {
         mainframe.addbutton(t3);
         mainframe.addbutton(t4);
         mainframe.addtext(h1);
+        mainframe.addArea(quote);
       //  mainframe.addbox(jComboBox);
        // mainframe.addLabel(dtf.format(now));
         
@@ -89,7 +97,7 @@ public class mainframe {
         @Override
         public void actionPerformed( ActionEvent e ) {
             //System.out.print("Heck yeah");
-           addPaycheck p1 = new addPaycheck();
+           toDoList p1 = new toDoList();
            p1.init();
             mainframe.close();
          //   mainframe.visible(false);
@@ -113,7 +121,8 @@ public class mainframe {
         @Override
         public void actionPerformed( ActionEvent e ) {
             //System.out.print("Heck yeah");
-            transfer t = new transfer();
+            notebook n = new notebook();
+            n.init();
         }
     });
 

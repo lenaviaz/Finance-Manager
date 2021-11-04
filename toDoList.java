@@ -1,14 +1,19 @@
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 
 import java.awt.Color;
 import java.awt.event.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
+import java.rmi.server.RemoteObjectInvocationHandler;
+import java.util.ArrayList;
 
 
-public class addPaycheck {
+public class toDoList {
 
 
     JTextField notes = new JTextField();
@@ -21,6 +26,8 @@ public class addPaycheck {
     frame fr = new frame();
 
     note myNote = new note();
+    JComboBox removeItem = new JComboBox();
+    ArrayList<String> Items = new ArrayList<String>();
 
     String file = "paychecks.csv";
 
@@ -35,16 +42,17 @@ public class addPaycheck {
         //b1.setBounds(50, 100, 150, 20);
        // JTextField t1 = new JTextField();
       
-        t2.setText("Add Items to your to do list");
+       // t2.setText("Add Items to your to do list");
         //int x int y int width int height
       //  t2.setBounds(50, 50, 150, 20);
        // t1.setBounds(50, 100, 150, 20);
         //b1.setBounds(50, 150, 150, 20);
         back.setBounds(550, 50, 150, 20);
-        view.setBounds(0, 50, 200, 100);
+        removeItem.setBounds(550, 100, 150, 20);
+      //  view.setBounds(0, 50, 200, 100);
         view.setBackground(Color.WHITE);
         notes.setBounds(300, 50, 200, 400);
-        add.setBounds(0, 150, 200, 100);
+        add.setBounds(0, 50, 200, 100);
         add.setBackground(Color.white);
      //   myNote.displayToDo();
         myNote.init();
@@ -52,14 +60,43 @@ public class addPaycheck {
         //fr.addtext(t2);
        // fr.addbutton(b1);
         fr.addbutton(back);
-        fr.addbutton(view);
+        fr.addbox(removeItem);
+     //   fr.addbutton(view);
         fr.addbutton(add);
         fr.getContentPane().add(myNote.scroll);
        // fr.addArea(myNote.toDo);
         //display();
         myNote.test();
+
+        populateRemove();
+        fillMenu();
     }
 
+
+    public void populateRemove(){
+      try (BufferedReader br = new BufferedReader(new FileReader("data.txt")))
+        {
+
+            String sCurrentLine;
+
+            while ((sCurrentLine = br.readLine()) != null) {
+                Items.add(sCurrentLine);
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } 
+
+    }
+
+
+    public void fillMenu(){
+      for(int i = 0; i < Items.size(); i++){
+      //  String a = Items(i);
+         removeItem.addItem(Items.get(i));
+
+      }
+    }
 
     JButton view = new JButton( new AbstractAction("View your to do list") {
       @Override
@@ -79,6 +116,7 @@ public class addPaycheck {
          
          myNote.init();
          myNote.window();
+  
     }
 });
 
@@ -124,8 +162,11 @@ public class addPaycheck {
           //  addPaycheck p1 = new addPaycheck();
             //f1.visible(false)
 
-            myNote.init(); 
+            myNote.init();
+           // mainframe f1 = new mainframe();
             init(); 
+            fillMenu();
+            populateRemove(); 
         }  
     });
 

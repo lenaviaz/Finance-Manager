@@ -4,7 +4,7 @@ import javax.swing.JFrame;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-
+import java.awt.Font;
 import java.awt.Color;
 import java.awt.event.*;
 import java.io.BufferedReader;
@@ -20,6 +20,7 @@ public class note {
     JTextField notes = new JTextField();
 
     JTextArea toDo = new JTextArea();
+    Font font1 = new Font("SansSerif", Font.BOLD, 15);
     JScrollPane scroll = new JScrollPane(toDo);
     ArrayList<String> listOfLines = new ArrayList<>();
    // JButton confirm = new JButton("confirm");
@@ -33,22 +34,30 @@ public class note {
     public void init(){ 
         
        // toDo.setBounds(150, 150, 300, 200);
-       scroll.setBounds(150, 150, 300, 200);
+       toDo.setFont(font1);
+       scroll.setBounds(200, 50, 300, 200);
 
         try (Reader myReader = new BufferedReader(new FileReader("data.txt"))) {
+           // toDo.read(myReader);
             toDo.read(myReader, "Inventory");
+
         } catch (IOException exp) {
             exp.printStackTrace();
         }
     }
     
     public void window() {
+
+        JTextField enter = new JTextField("Add new task: ");
+        enter.setBounds(100, 25, 150, 30);
         j1.setBounds(200, 200, 400, 400);
-        notes.setBounds(100, 100, 75, 25);//displayedtexts
-        confirm.setBounds(50, 50, 50, 20);
+        notes.setBounds(100, 100, 150, 30);//displayedtexts
+        confirm.setBounds(100, 250, 150, 30);
        
         j1.add(notes);
         j1.add(confirm);
+        j1.add(enter);
+        j1.setLocationRelativeTo(null);
         j1.setLayout(null);
         j1.setVisible(true);
     }
@@ -114,7 +123,19 @@ public class note {
          //  mainframe m1 = new mainframe();
           // m1.run();
           init();
+          try {
+            toList();
+        } catch (IOException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
         }
+
+        //here needs to trigger som
+
+        //toDoList h1 = new toDoList();
+      //  h1.populateRemove();
+        }
+        
     });
 
 
