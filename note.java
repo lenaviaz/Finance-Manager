@@ -1,6 +1,7 @@
 import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
@@ -19,6 +20,7 @@ public class note {
     JTextField notes = new JTextField();
 
     JTextArea toDo = new JTextArea();
+    JScrollPane scroll = new JScrollPane(toDo);
     ArrayList<String> listOfLines = new ArrayList<>();
    // JButton confirm = new JButton("confirm");
    JFrame j1 = new JFrame();
@@ -30,7 +32,8 @@ public class note {
 
     public void init(){ 
         
-        toDo.setBounds(150, 150, 300, 200);
+       // toDo.setBounds(150, 150, 300, 200);
+       scroll.setBounds(150, 150, 300, 200);
 
         try (Reader myReader = new BufferedReader(new FileReader("data.txt"))) {
             toDo.read(myReader, "Inventory");

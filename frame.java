@@ -3,11 +3,13 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import java.awt.font.*;
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.event.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -79,6 +81,15 @@ public class frame {
         frame.add(j);
     }
     
+    
+    public void addPane(JScrollPane p){
+        frame.add(p);
+    }
+
+    public Container getContentPane() {
+        return frame;
+        
+    }
    
     
     }

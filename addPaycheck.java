@@ -54,7 +54,8 @@ public class addPaycheck {
         fr.addbutton(back);
         fr.addbutton(view);
         fr.addbutton(add);
-        fr.addArea(myNote.toDo);
+        fr.getContentPane().add(myNote.scroll);
+       // fr.addArea(myNote.toDo);
         //display();
         myNote.test();
     }
