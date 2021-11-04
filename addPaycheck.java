@@ -2,21 +2,29 @@ import javax.swing.AbstractAction;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
+
+import java.awt.Color;
 import java.awt.event.*;
 import java.io.IOException;
 
 
 public class addPaycheck {
 
-    JTextField t1 = new JTextField();
+
+    JTextField notes = new JTextField();
+    JButton t1 = new JButton();
     JTextField t2 = new JTextField();
  //  public finance fin = new finance();
     frame fr = new frame();
 
-    public addPaycheck(){
+    note myNote = new note();
+
+    String file = "paychecks.csv";
+
+    public addPaycheck() {
 
        // finance fin = new finance();
-
+  
         fr.newFrame();
        // fr.setSize(600, 600);
 
@@ -24,20 +32,54 @@ public class addPaycheck {
         //b1.setBounds(50, 100, 150, 20);
        // JTextField t1 = new JTextField();
       
-        t2.setText("Enter your paycheck this week");
-        t2.setBounds(50, 50, 150, 20);
-        t1.setBounds(50, 100, 150, 20);
-        b1.setBounds(50, 150, 150, 20);
-        b2.setBounds(50, 200, 150, 20);
-        
-        fr.addtext(t1);
-        fr.addtext(t2);
-        fr.addbutton(b1);
-        fr.addbutton(b2);
-
-        
-
+        t2.setText("Add Items to your to do list");
+        //int x int y int width int height
+      //  t2.setBounds(50, 50, 150, 20);
+       // t1.setBounds(50, 100, 150, 20);
+        //b1.setBounds(50, 150, 150, 20);
+        back.setBounds(550, 50, 150, 20);
+        view.setBounds(0, 50, 200, 100);
+        view.setBackground(Color.WHITE);
+        notes.setBounds(300, 50, 200, 400);
+        add.setBounds(0, 150, 200, 100);
+        add.setBackground(Color.white);
+        myNote.displayToDo();
+        myNote.init();
+       // fr.addbutton(t1);
+        //fr.addtext(t2);
+       // fr.addbutton(b1);
+        fr.addbutton(back);
+        fr.addbutton(view);
+        fr.addbutton(add);
+        fr.addtext(myNote.toDo);
+        //display();
+        myNote.test();
     }
+
+
+    JButton view = new JButton( new AbstractAction("View your to do list") {
+      @Override
+      public void actionPerformed( ActionEvent e ) {
+         fr.close();
+         mainframe m1 = new mainframe();
+         m1.run();
+      }
+  });
+  
+  
+  JButton add = new JButton( new AbstractAction("Add items to list") {
+    @Override
+    public void actionPerformed( ActionEvent e ) {
+     //  fr.close();
+     //  mainframe m1 = new mainframe();
+     //  m1.run();
+         note myNote = new note();
+         myNote.init();
+
+        
+    }
+});
+
 
     JButton b1 = new JButton( new AbstractAction("confirm") {
         @Override
@@ -82,7 +124,7 @@ public class addPaycheck {
         }
     });
 
-    JButton b2 = new JButton( new AbstractAction("back to main page") {
+    JButton back = new JButton( new AbstractAction("back to main page") {
       @Override
       public void actionPerformed( ActionEvent e ) {
          fr.close();

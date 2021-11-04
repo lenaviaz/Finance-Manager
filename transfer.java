@@ -4,7 +4,9 @@ import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JTextField;
 import java.awt.event.*;
+import java.io.File;
 import java.io.IOException;
+
 public class transfer {
 
     frame fr = new frame();
@@ -13,6 +15,8 @@ public class transfer {
 
     String[] accounts = {"Checking", "Savings"};
     JComboBox<String> jComboBox = new JComboBox<>(accounts);
+
+    
 
     public transfer(){
 
@@ -29,7 +33,7 @@ public class transfer {
          t2.setBounds(50, 50, 150, 20);
          t1.setBounds(50, 100, 150, 20);
          b1.setBounds(50, 150, 150, 20);
-         b2.setBounds(50, 200, 150, 20);
+         back.setBounds(50, 200, 150, 20);
 
          
         jComboBox.setBounds(80, 5, 140, 20);
@@ -37,7 +41,7 @@ public class transfer {
          fr.addtext(t1);
          fr.addtext(t2);
          fr.addbutton(b1);
-         fr.addbutton(b2);
+         fr.addbutton(back);
          fr.addbox(jComboBox);
  
      }
@@ -68,11 +72,11 @@ public class transfer {
                 e1.printStackTrace();
             }
        // }
-         
+       //Desktop.getDesktop().open(example_file);
         }
      });
  
-     JButton b2 = new JButton( new AbstractAction("back to main page") {
+     JButton back = new JButton( new AbstractAction("back to main page") {
        @Override
        public void actionPerformed( ActionEvent e ) {
           fr.close();

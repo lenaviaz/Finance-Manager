@@ -3,6 +3,7 @@ public class main {
 
         mainframe fr = new mainframe();
         fr.run();
+        fr.showdate();
        
         
 
